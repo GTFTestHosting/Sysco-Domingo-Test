@@ -162,19 +162,24 @@
 
   <script>
     function downloadVCF() {
-      const vcfData = `BEGIN:VCARD\nVERSION:3.0\nN:Mata;Domingo;;;\nFN:Domingo Mata\nORG:Sysco\nTITLE:Sales Consultant\nTEL;TYPE=WORK,VOICE:661-751-7653\nEMAIL:domingomata@sysco.com\nADR;TYPE=WORK:;;3100 Sturgis Road;Oxnard;CA;93030;United States\nEND:VCARD`;
+    const vcfData = `BEGIN:VCARD
+    VERSION:3.0
+    N:Mata;Domingo;;;
+    FN:Domingo Mata
+    ORG:Sysco
+    TITLE:Sales Consultant
+    TEL;TYPE=WORK,VOICE:661-751-7653
+    EMAIL:domingomata@sysco.com
+    ADR;TYPE=WORK:;;3100 Sturgis Road;Oxnard;CA;93030;United States
+    END:VCARD`;
 
-      const blob = new Blob([vcfData], { type: "text/vcard" });
-      const url = URL.createObjectURL(blob);
+  const blob = new Blob([vcfData], { type: 'text/vcard' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'Domingo_Mata.vcf';
+  link.click();
+}
 
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "Domingo_Mata.vcf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
   </script>
 </body>
 </html>
