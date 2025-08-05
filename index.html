@@ -80,11 +80,9 @@
       margin-top: 20px;
       font-size: 14px;
       color: #00579f;
-    }
-    .contact div {
       display: flex;
-      align-items: center;
-      margin: 10px 0;
+      flex-direction: column;
+      gap: 10px;
     }
     .icon-button {
       background-color: #0075c9;
@@ -98,6 +96,7 @@
       margin-right: 10px;
       font-size: 16px;
       text-decoration: none;
+      flex-shrink: 0;
     }
     .icon-link {
       color: #00579f;
@@ -108,43 +107,19 @@
     .buttons {
       display: flex;
       gap: 10px;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    .buttons a,
-    .save-contact {
-      flex: 1 1 48%;
-      text-align: center;
-      border-radius: 6px;
-      font-size: 14px;
-      padding: 10px 16px;
-      text-decoration: none;
-      display: flex;
       justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
+      margin-top: 20px;
     }
     .buttons a {
       background: #0075c9;
       color: white;
-    }
-    .save-contact {
-      background: #0075c9;
-      color: white;
-      transition: background-color 0.3s ease;
-    }
-    .save-contact:hover,
-    .buttons a:hover {
-      background: #005a91;
-    }
-    .save-contact .icon-button {
-      margin-right: 8px;
-      width: auto;
-      height: auto;
-      background: transparent;
-      font-size: 18px;
-      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      flex: 1 1 auto;
+      text-align: center;
+      user-select: none;
     }
     .footer {
       background: #0075c9;
@@ -173,26 +148,26 @@
         Los Angeles Region
       </div>
       <div class="contact">
-        <a href="tel:6617517653" class="icon-link"
-          ><span class="icon-button">📞</span>661-751-7653</a
+        <a href="tel:6617517653" class="icon-link">
+          <span class="icon-button">📞</span>661-751-7653
+        </a>
+        <a href="mailto:domingomata@sysco.com" class="icon-link">
+          <span class="icon-button">✉️</span>domingomata@sysco.com
+        </a>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=3100+Sturgis+Road,+Oxnard,+CA+93030"
+          target="_blank"
+          class="icon-link"
+          rel="noopener noreferrer"
         >
-        <a href="mailto:domingomata@sysco.com" class="icon-link"
-          ><span class="icon-button">✉️</span
-          >domingomata@sysco.com</a
-        >
-        <div><span class="icon-button">📌</span>3100 Sturgis Road, Oxnard, CA 93030</div>
+          <span class="icon-button">📌</span>3100 Sturgis Road, Oxnard, CA 93030
+        </a>
       </div>
       <div class="buttons">
-        <a href="https://sysco.com" target="_blank">🌐 sysco.com</a>
-        <div
-          class="save-contact"
-          onclick="downloadVCF()"
-          role="button"
-          tabindex="0"
-          onkeypress="if(event.key==='Enter') downloadVCF()"
+        <a href="https://sysco.com" target="_blank" rel="noopener noreferrer"
+          >🌐 sysco.com</a
         >
-          <span class="icon-button">📂</span> Save My Info
-        </div>
+        <a href="#" onclick="downloadVCF()">📂 Save My Info</a>
       </div>
     </div>
     <div class="footer">
