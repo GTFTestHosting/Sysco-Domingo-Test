@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sysco Business Card</title>
   <style>
     * {
@@ -107,51 +107,45 @@
     }
     .buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-around;
+      justify-content: space-between;
       margin-top: 20px;
+    }
+    .buttons a,
+    .save-contact {
+      flex: 1 1 48%;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 14px;
+      padding: 10px 16px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
     }
     .buttons a {
       background: #0075c9;
       color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-      flex: 1 1 45%;
-      text-align: center;
     }
-
-    /* New style for the "Save My Info" div to match .info-item style */
     .save-contact {
-      cursor: pointer;
       background: #0075c9;
       color: white;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      text-align: center;
-      user-select: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
-    .save-contact:hover {
+    .save-contact:hover,
+    .buttons a:hover {
       background: #005a91;
     }
     .save-contact .icon-button {
-      margin-right: 0;
+      margin-right: 8px;
       width: auto;
       height: auto;
       background: transparent;
-      color: white;
       font-size: 18px;
+      color: white;
     }
-
     .footer {
       background: #0075c9;
       color: white;
@@ -159,7 +153,6 @@
       font-size: 12px;
       padding: 10px 15px;
       font-weight: bold;
-      margin-top: 20px;
     }
     .highlight {
       color: #ffffff;
@@ -180,21 +173,31 @@
         Los Angeles Region
       </div>
       <div class="contact">
-        <a href="tel:6617517653" class="icon-link"><span class="icon-button">📞</span>661-751-7653</a>
-        <a href="mailto:domingomata@sysco.com" class="icon-link"><span class="icon-button">✉️</span>domingomata@sysco.com</a>
+        <a href="tel:6617517653" class="icon-link"
+          ><span class="icon-button">📞</span>661-751-7653</a
+        >
+        <a href="mailto:domingomata@sysco.com" class="icon-link"
+          ><span class="icon-button">✉️</span
+          >domingomata@sysco.com</a
+        >
         <div><span class="icon-button">📌</span>3100 Sturgis Road, Oxnard, CA 93030</div>
       </div>
       <div class="buttons">
         <a href="https://sysco.com" target="_blank">🌐 sysco.com</a>
-      </div>
-
-      <!-- Replaced the <a> with <div> for Save My Info -->
-      <div class="save-contact" onclick="downloadVCF()" role="button" tabindex="0" onkeypress="if(event.key==='Enter') downloadVCF()">
-        <span class="icon-button">📂</span> Save My Info
+        <div
+          class="save-contact"
+          onclick="downloadVCF()"
+          role="button"
+          tabindex="0"
+          onkeypress="if(event.key==='Enter') downloadVCF()"
+        >
+          <span class="icon-button">📂</span> Save My Info
+        </div>
       </div>
     </div>
     <div class="footer">
-      YOUR ACCOUNT SUPPORT TEAMS<br />ARE ONE CALL AWAY <span class="highlight">1-800-SyscoCS</span>
+      YOUR ACCOUNT SUPPORT TEAMS<br />
+      ARE ONE CALL AWAY <span class="highlight">1-800-SyscoCS</span>
     </div>
   </div>
 
