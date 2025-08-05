@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sysco Business Card</title>
   <style>
     * {
@@ -122,6 +122,36 @@
       flex: 1 1 45%;
       text-align: center;
     }
+
+    /* New style for the "Save My Info" div to match .info-item style */
+    .save-contact {
+      cursor: pointer;
+      background: #0075c9;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      text-align: center;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .save-contact:hover {
+      background: #005a91;
+    }
+    .save-contact .icon-button {
+      margin-right: 0;
+      width: auto;
+      height: auto;
+      background: transparent;
+      color: white;
+      font-size: 18px;
+    }
+
     .footer {
       background: #0075c9;
       color: white;
@@ -129,6 +159,7 @@
       font-size: 12px;
       padding: 10px 15px;
       font-weight: bold;
+      margin-top: 20px;
     }
     .highlight {
       color: #ffffff;
@@ -139,12 +170,15 @@
   <div class="card">
     <div class="card-content">
       <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sysco_logo.svg/2560px-Sysco_logo.svg.png" alt="Sysco Logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sysco_logo.svg/2560px-Sysco_logo.svg.png" alt="Sysco Logo" />
       </div>
       <div class="tagline">At the heart of food and service</div>
-      <hr>
+      <hr />
       <div class="name">Domingo Mata</div>
-      <div class="title">Sales Consultant<br>Los Angeles Region</div>
+      <div class="title">
+        Sales Consultant<br />
+        Los Angeles Region
+      </div>
       <div class="contact">
         <a href="tel:6617517653" class="icon-link"><span class="icon-button">📞</span>661-751-7653</a>
         <a href="mailto:domingomata@sysco.com" class="icon-link"><span class="icon-button">✉️</span>domingomata@sysco.com</a>
@@ -152,33 +186,36 @@
       </div>
       <div class="buttons">
         <a href="https://sysco.com" target="_blank">🌐 sysco.com</a>
-        <a href="#" onclick="downloadVCard()">📂 Save My Info</a>
+      </div>
+
+      <!-- Replaced the <a> with <div> for Save My Info -->
+      <div class="save-contact" onclick="downloadVCF()" role="button" tabindex="0" onkeypress="if(event.key==='Enter') downloadVCF()">
+        <span class="icon-button">📂</span> Save My Info
       </div>
     </div>
     <div class="footer">
-      YOUR ACCOUNT SUPPORT TEAMS<br>ARE ONE CALL AWAY <span class="highlight">1-800-SyscoCS</span>
+      YOUR ACCOUNT SUPPORT TEAMS<br />ARE ONE CALL AWAY <span class="highlight">1-800-SyscoCS</span>
     </div>
   </div>
 
   <script>
-    function downloadVCard() {
-    const vCardData = `BEGIN:VCARD
-    VERSION:3.0
-    FN:Domingo Mata
-    ORG:Sysco
-    TITLE:Sales Consultant
-    TEL;TYPE=WORK,VOICE:661-751-7653
-    EMAIL:domingomata@sysco.com
-    ADR:;;3100 Sturgis Road,Oxnard CA,93030;;;
-    END:VCARD`;
+    function downloadVCF() {
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Domingo Mata
+ORG:Sysco
+TITLE:Sales Consultant
+TEL;TYPE=WORK,VOICE:661-751-7653
+EMAIL:domingomata@sysco.com
+ADR:;;3100 Sturgis Road;Oxnard;CA;93030;United States;;;
+END:VCARD`;
 
-  const blob = new Blob([vCardData], { type: 'text/vcard' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = 'Domingo-Mata.vcf';
-  link.click();
-}
-
+      const blob = new Blob([vCardData], { type: 'text/vcard' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Domingo-Mata.vcf';
+      link.click();
+    }
   </script>
 </body>
 </html>
