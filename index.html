@@ -28,7 +28,7 @@
     }
     .card-content {
       padding: 20px;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Los_Angeles_Skyline_Mountains2.jpg/640px-Los_Angeles_Skyline_Mountains2.jpg');
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Los_Angeles_with_Mount_Baldy.jpg/1920px-Los_Angeles_with_Mount_Baldy.jpg');
       background-size: cover;
       background-position: center;
       color: #00579f;
@@ -103,12 +103,23 @@
       text-decoration: none;
       display: flex;
       align-items: center;
+      padding: 0 10px;
+    }
+    /* New style for the plain address */
+    .address-link {
+      display: block;
+      color: #00579f;
+      font-size: 14px;
+      text-align: left;
+      margin: 20px 0 10px;
+      text-decoration: none;
+      cursor: pointer;
     }
     .buttons {
       display: flex;
       gap: 10px;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .buttons a {
       background: #0075c9;
@@ -138,9 +149,11 @@
   <div class="card">
     <div class="card-content">
       <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sysco_logo.svg/2560px-Sysco_logo.svg.png" alt="Sysco Logo" />
+        <img
+          src="https://www.wikicorporates.org/mediawiki/images/e/ed/Sysco-Corporation-2008.svg"
+          alt="Sysco Logo"
+        />
       </div>
-      <div class="tagline">At the heart of food and service</div>
       <hr />
       <div class="name">Domingo Mata</div>
       <div class="title">
@@ -148,21 +161,24 @@
         Los Angeles Region
       </div>
       <div class="contact">
-        <a href="tel:6617517653" class="icon-link">
-          <span class="icon-button">📞</span>661-751-7653
-        </a>
-        <a href="mailto:domingomata@sysco.com" class="icon-link">
-          <span class="icon-button">✉️</span>domingomata@sysco.com
-        </a>
-        <a
-          href="https://www.google.com/maps/search/?api=1&query=3100+Sturgis+Road,+Oxnard,+CA+93030"
-          target="_blank"
-          class="icon-link"
-          rel="noopener noreferrer"
+        <a href="tel:6617517653" class="icon-link"
+          ><span class="icon-button">📞</span>661-751-7653</a
         >
-          <span class="icon-button">📌</span>3100 Sturgis Road, Oxnard, CA 93030
-        </a>
+        <a href="mailto:domingomata@sysco.com" class="icon-link"
+          ><span class="icon-button">✉️</span
+          >domingomata@sysco.com</a
+        >
       </div>
+
+      <!-- Plain address link placed above buttons -->
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=3100+Sturgis+Road,+Oxnard,+CA+93030"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="address-link"
+        >3100 Sturgis Road<br> Oxnard, CA 93030</a
+      >
+
       <div class="buttons">
         <a href="https://sysco.com" target="_blank" rel="noopener noreferrer"
           >🌐 sysco.com</a
@@ -188,10 +204,10 @@ EMAIL:domingomata@sysco.com
 ADR:;;3100 Sturgis Road;Oxnard;CA;93030;United States;;;
 END:VCARD`;
 
-      const blob = new Blob([vCardData], { type: 'text/vcard' });
-      const link = document.createElement('a');
+      const blob = new Blob([vCardData], { type: "text/vcard" });
+      const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = 'Domingo-Mata.vcf';
+      link.download = "Domingo-Mata.vcf";
       link.click();
     }
   </script>
