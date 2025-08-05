@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysco Business Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .card-content {
+      padding: 20px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Los_Angeles_Skyline_Mountains2.jpg/640px-Los_Angeles_Skyline_Mountains2.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #00579f;
+      position: relative;
+    }
+    .card-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 0;
+    }
+    .card-content * {
+      position: relative;
+      z-index: 1;
+    }
+    .logo {
+      text-align: center;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .tagline {
+      text-align: center;
+      font-size: 14px;
+      margin: 5px 0 10px;
+      color: #00579f;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 10px 0;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 20px;
+      text-align: center;
+      color: #00579f;
+    }
+    .title {
+      text-align: center;
+      font-size: 14px;
+      color: #0075c9;
+    }
+    .contact {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #00579f;
+    }
+    .contact div {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .icon-button {
+      background-color: #0075c9;
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .icon-link {
+      color: #00579f;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .buttons a {
+      background: #0075c9;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      flex: 1 1 45%;
+      text-align: center;
+    }
+    .footer {
+      background: #0075c9;
+      color: white;
+      text-align: center;
+      font-size: 12px;
+      padding: 10px 15px;
+      font-weight: bold;
+    }
+    .highlight {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-content">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Sysco_logo.svg/2560px-Sysco_logo.svg.png" alt="Sysco Logo">
+      </div>
+      <div class="tagline">At the heart of food and service</div>
+      <hr>
+      <div class="name">Domingo Mata</div>
+      <div class="title">Sales Consultant<br>Los Angeles Region</div>
+      <div class="contact">
+        <a href="tel:6617517653" class="icon-link"><span class="icon-button">📞</span>661-751-7653</a>
+        <a href="mailto:domingomata@sysco.com" class="icon-link"><span class="icon-button">✉️</span>domingomata@sysco.com</a>
+        <div><span class="icon-button">📌</span>3100 Sturgis Road, Oxnard, CA 93030</div>
+      </div>
+      <div class="buttons">
+        <a href="https://sysco.com" target="_blank">🌐 sysco.com</a>
+        <a href="#" onclick="downloadVCF()">📂 Save My Info</a>
+      </div>
+    </div>
+    <div class="footer">
+      YOUR ACCOUNT SUPPORT TEAMS<br>ARE ONE CALL AWAY <span class="highlight">1-800-SyscoCS</span>
+    </div>
+  </div>
+
+  <script>
+    function downloadVCF() {
+      const vcfData = `BEGIN:VCARD\nVERSION:3.0\nN:Mata;Domingo;;;\nFN:Domingo Mata\nORG:Sysco\nTITLE:Sales Consultant\nTEL;TYPE=WORK,VOICE:661-751-7653\nEMAIL:domingomata@sysco.com\nADR;TYPE=WORK:;;3100 Sturgis Road;Oxnard;CA;93030;United States\nEND:VCARD`;
+
+      const blob = new Blob([vcfData], { type: "text/vcard" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Domingo_Mata.vcf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
