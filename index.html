@@ -52,7 +52,7 @@
       text-align: center;
     }
     .logo img {
-      height: 50px;
+      height: 120px;
     }
     .tagline {
       text-align: center;
@@ -92,7 +92,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 5px;
+      border-radius: 15px;
       margin-right: 10px;
       font-size: 16px;
       text-decoration: none;
@@ -103,9 +103,8 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      padding: 0 10px;
+      padding: 0 60px;
     }
-    /* New style for the plain address */
     .address-link {
       display: block;
       color: #00579f;
@@ -114,6 +113,7 @@
       margin: 20px 0 10px;
       text-decoration: none;
       cursor: pointer;
+      padding: 0 30px;
     }
     .buttons {
       display: flex;
@@ -125,12 +125,23 @@
       background: #0075c9;
       color: white;
       padding: 10px 16px;
-      border-radius: 6px;
+      border-radius: 25px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
       flex: 1 1 auto;
       text-align: center;
       user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .buttons svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
     }
     .footer {
       background: #0075c9;
@@ -161,29 +172,55 @@
         Los Angeles Region
       </div>
       <div class="contact">
-        <a href="tel:6617517653" class="icon-link"
-          ><span class="icon-button">📞</span>661-751-7653</a
-        >
-        <a href="mailto:domingomata@sysco.com" class="icon-link"
-          ><span class="icon-button">✉️</span
-          >domingomata@sysco.com</a
-        >
+        <a href="tel:6617517653" class="icon-link">
+          <span class="icon-button" aria-hidden="true">
+            <!-- Phone SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.29 12.29 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.29 12.29 0 0 0 2.8.7 2 2 0 0 1 1.73 2z"/>
+            </svg>
+          </span>
+          661-751-7653
+        </a>
+        <a href="mailto:domingomata@sysco.com" class="icon-link">
+          <span class="icon-button" aria-hidden="true">
+            <!-- Email SVG icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+            </svg>
+          </span>
+          domingomata@sysco.com
+        </a>
       </div>
 
-      <!-- Plain address link placed above buttons -->
       <a
         href="https://www.google.com/maps/search/?api=1&query=3100+Sturgis+Road,+Oxnard,+CA+93030"
         target="_blank"
         rel="noopener noreferrer"
         class="address-link"
-        >3100 Sturgis Road<br> Oxnard, CA 93030</a
+        >3100 Sturgis Road<br /> Oxnard, CA 93030</a
       >
 
       <div class="buttons">
-        <a href="https://sysco.com" target="_blank" rel="noopener noreferrer"
-          >🌐 sysco.com</a
-        >
-        <a href="#" onclick="downloadVCF()">📂 Save My Info</a>
+        <a href="https://sysco.com" target="_blank" rel="noopener noreferrer">
+          <!-- Globe SVG icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <path d="M8.5 3a24 24 0 0 0 0 18"/>
+            <path d="M15.5 3a24 24 0 0 1 0 18"/>
+          </svg>
+          About Us
+        </a>
+        <a href="#" onclick="downloadVCF()">
+          <!-- Down arrow with base SVG icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+             <path d="M12 3v12" />
+             <path d="M8 11l4 4l4-4" />
+             <path d="M6 21h12" />
+          </svg>
+          Add to Contacts
+        </a>
       </div>
     </div>
     <div class="footer">
@@ -196,8 +233,7 @@
     function downloadVCF() {
       const vCardData = `BEGIN:VCARD
 VERSION:3.0
-FN:Domingo Mata
-ORG:Sysco
+FN:Domingo Mata (Sysco)
 TITLE:Sales Consultant
 TEL;TYPE=WORK,VOICE:661-751-7653
 EMAIL:domingomata@sysco.com
